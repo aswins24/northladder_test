@@ -10,7 +10,7 @@ class OnBoardingPage3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
         Text(
           'What are you interested in buying?',
@@ -29,6 +29,7 @@ class OnBoardingPage3 extends StatelessWidget {
           style: Style.h4.textStyle
               .copyWith(fontWeight: FontWeight.w500, fontSize: 17),
         ),
+        kSmallBox,
         Consumer<DeviceChangeNotifier>(
           builder: (context, model, _) => GridView.builder(
             shrinkWrap: true,

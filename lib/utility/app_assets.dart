@@ -53,4 +53,6 @@ class AppAssets{
   static const iPhone8 ='assets/images/iPhone8.png';
   static const product ='assets/images/Product.png';
   static const productPreview = 'assets/images/product_preview.png';
+  static const laptop = 'assets/images/laptop.png';
+  static const smartwatch ='assets/images/smartwatch.png';
 }

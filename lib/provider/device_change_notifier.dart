@@ -9,8 +9,8 @@ class DeviceChangeNotifier extends ChangeNotifier {
       'Smartphone',
       AppAssets.phone,
     ),
-    Device('Laptop', AppAssets.tablet),
-    Device('Smartwatch', AppAssets.phone),
+    Device('Laptop', AppAssets.laptop),
+    Device('Smartwatch', AppAssets.smartwatch),
     Device('Tablet', AppAssets.tablet)
   ];
   List<int> selectedDevices =[];
