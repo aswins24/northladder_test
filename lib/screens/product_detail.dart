@@ -137,73 +137,40 @@ class _ProductDetailState extends State<ProductDetail> {
                       ),
                       kMediumBox,
                       //  Radio(value: value, groupValue: groupValue, onChanged: onChanged),
-                      RadioListTile<int>(
-                        contentPadding: EdgeInsets.zero,
-                        value: 0,
-                        groupValue: value,
-                        activeColor: AppColor.primaryColor,
-                        onChanged: (newValue) {
-                          setState(() {
-                            value = newValue!;
-                          });
-                        },
-                        title: Text(
-                          (widget.product.currentBid + 50).toStringAsFixed(0) +
-                              ' AED',
-                          style: Style.p.textStyle.copyWith(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 15,
-                              color: value == 0
-                                  ? AppColor.primaryColor
-                                  : Colors.black),
-                        ),
-                      ),
-
-                      RadioListTile<int>(
-                        contentPadding: EdgeInsets.zero,
-                        value: 1,
-                        groupValue: value,
-                        activeColor: AppColor.primaryColor,
-                        onChanged: (newValue) {
-                          setState(() {
-                            value = newValue!;
-                          });
-                        },
-                        title: Row(
-                          children:  [
-                            Text('Set autobid value',style: Style.p.textStyle.copyWith(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 15,
-                                color: value == 1
-                                    ? AppColor.primaryColor
-                                    : Colors.black)),
-                            kSmallWidthBox,
-                            const Icon(
-                              Icons.info_outline_rounded,
-                              color: Colors.grey,
-                            )
-                          ],
-                        ),
-                      ),
-                      getTextField(_autoBidController, 'min 200',
-                          type: TextInputType.number, isReadOnly: value != 1),
-                      RadioListTile<int>(
-                        contentPadding: EdgeInsets.zero,
-                        value: 2,
-                        groupValue: value,
-                        activeColor: AppColor.primaryColor,
-                        onChanged: (newValue) {
-                          setState(() {
-                            value = newValue!;
-                          });
-                        },
-                        title: Text('Custom',style: Style.p.textStyle.copyWith(
+                      getRadioListTile(0, Text(
+                        (widget.product.currentBid + 50).toStringAsFixed(0) +
+                            ' AED',
+                        style: Style.p.textStyle.copyWith(
                             fontWeight: FontWeight.w500,
                             fontSize: 15,
-                            color: value == 2
+                            color: value == 0
                                 ? AppColor.primaryColor
-                                : Colors.black),),
-                      ),
+                                : Colors.black),
+                      ),),
+
+                      getRadioListTile(1, Row(
+                        children:  [
+                          Text('Set autobid value',style: Style.p.textStyle.copyWith(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 15,
+                              color: value == 1
+                                  ? AppColor.primaryColor
+                                  : Colors.black)),
+                          kSmallWidthBox,
+                          const Icon(
+                            Icons.info_outline_rounded,
+                            color: Colors.grey,
+                          )
+                        ],
+                      ),),
+                      getTextField(_autoBidController, 'min 200',
+                          type: TextInputType.number, isReadOnly: value != 1),
+                      getRadioListTile(2, Text('Custom',style: Style.p.textStyle.copyWith(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 15,
+                          color: value == 2
+                              ? AppColor.primaryColor
+                              : Colors.black),),),
                       getTextField(_customBidController, 'min 200',
                           type: TextInputType.number, isReadOnly: value != 2),
                       kSmallBox,
@@ -334,6 +301,21 @@ class _ProductDetailState extends State<ProductDetail> {
           )
         ],
       ),
+    );
+  }
+
+  Widget getRadioListTile(int radioValue, Widget title){
+   return RadioListTile<int>(
+      contentPadding: EdgeInsets.zero,
+      value: radioValue,
+      groupValue: value,
+      activeColor: AppColor.primaryColor,
+      onChanged: (newValue) {
+        setState(() {
+          value = newValue!;
+        });
+      },
+      title: title,
     );
   }
 }
