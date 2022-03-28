@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:northladder_test_app/screens/home_screen.dart';
 import 'package:northladder_test_app/utility/app_color.dart';
 import 'package:northladder_test_app/utility/constants.dart';
 
@@ -64,7 +65,14 @@ class _SignInScreenState extends State<SignInScreen> {
               canObscure: true,
             ),
             kSmallBox,
-            TextButtonFullWidth(text: 'Log in', onTap: () {}),
+            TextButtonFullWidth(
+                text: 'Log in',
+                onTap: () {
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()),
+                      (route) => false);
+                }),
             kSmallBox,
             Text(
               'Forgot your password?',

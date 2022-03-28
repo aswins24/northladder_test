@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:northladder_test_app/provider/category_change_notifier.dart';
 import 'package:northladder_test_app/provider/country_change_notifier.dart';
 import 'package:northladder_test_app/provider/device_change_notifier.dart';
@@ -8,7 +9,13 @@ import 'package:northladder_test_app/utility/style/text_style.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(
+
     MultiProvider(
       providers: [
         ChangeNotifierProvider<CountryChangeNotifier>(

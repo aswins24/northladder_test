@@ -95,9 +95,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       print(currentIndex.value);
     }
     else if (currentIndex.value == 2) {
-      Navigator.push(
+      Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => const HomeScreen(),),);
+          MaterialPageRoute(builder: (context) => const HomeScreen(),),(route) => false);
     }
   }
 
